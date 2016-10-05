@@ -2,6 +2,8 @@
 # The data can then be loaded with the rake db:seed (or created alongside the db with db:setup).
 #
 # Examples:
+
+User.create([{email: 'sachin@sachin.com', password: 'sachinkaria', password_confirmation: 'sachinkaria'}])
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)

@@ -15,6 +15,7 @@ gem 'devise_token_auth'
 gem 'omniauth'
 gem 'devise'
 gem 'shoulda'
+gem 'rack-cors', :require => 'rack/cors'
 
 group :development, :test do
   gem 'byebug'

@@ -7,9 +7,9 @@ class User < ActiveRecord::Base
 
   has_many :posts
 
-  def as_json(options={})
-    super(only: [:id,
-      :email])
-    end
-
+  before_save -> do
+    self.uid = SecureRandom.uuid
+    skip_confirmation!
+  end
+  
   end
