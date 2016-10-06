@@ -9,6 +9,14 @@ class PostsController < ApplicationController
     respond_with current_user.posts.create(post_params)
   end
 
+  def show
+    render json: Post.find(params[:id])
+  end
+
+  def update
+     respond_with Post.find(params[:id]).update(post_params)
+  end
+
   private
 
   def post_params
