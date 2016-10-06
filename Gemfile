@@ -16,6 +16,8 @@ gem 'omniauth'
 gem 'devise'
 gem 'shoulda'
 gem 'rack-cors', :require => 'rack/cors'
+gem 'omniauth-facebook'
+gem 'dotenv-rails'
 
 group :development, :test do
   gem 'byebug'
