@@ -5,11 +5,11 @@ class User < ActiveRecord::Base
   :confirmable, :omniauthable
   include DeviseTokenAuth::Concerns::User
 
-  has_many :posts
+  has_many :posts, dependent: :destroy
 
   before_save -> do
     self.uid = SecureRandom.uuid
     skip_confirmation!
   end
-  
+
   end

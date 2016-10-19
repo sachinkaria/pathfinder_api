@@ -6,4 +6,5 @@ class Post < ActiveRecord::Base
      include: [user: { only: [:name] }]
        )
    end
+
 end
