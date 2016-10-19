@@ -1,4 +1,3 @@
 Rails.application.config.middleware.use OmniAuth::Builder do
-  provider :facebook, ENV['APP_KEY'], ENV['APP_SECRET']
-  # config.navigational_formats = [:json]
+  provider :facebook, ENV['FACEBOOK_KEY'], ENV['FACEBOOK_SECRET']
 end
