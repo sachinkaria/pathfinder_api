@@ -11,7 +11,7 @@ class Conversation < ActiveRecord::Base
   end
 
   def as_json(options={})
-     super(only: [:sender_id, :recipient_id])
+     super(only: [:id, :sender_id, :recipient_id])
    end
 
 end

@@ -4,7 +4,11 @@ respond_to :json
 
   def show
     @user = current_user.posts
-    render :json => @user
+    render json: @user
+  end
+
+  def index
+    render json: User.all
   end
 
 end
