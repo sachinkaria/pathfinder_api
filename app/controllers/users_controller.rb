@@ -3,8 +3,7 @@ before_action :authenticate_user!
 respond_to :json
 
   def show
-    @user = current_user.posts
-    render json: @user
+    render json: User.find(params[:id])
   end
 
   def index

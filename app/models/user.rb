@@ -12,4 +12,10 @@ class User < ActiveRecord::Base
     skip_confirmation!
   end
 
+  def as_json(options={})
+     super(only: [:id, :email, :name],
+     include: [posts: { only: [:description] }]
+       )
+   end
+
   end
