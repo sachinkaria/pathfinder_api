@@ -4,4 +4,9 @@ class Message < ActiveRecord::Base
 
  validates_presence_of :body, :conversation_id, :user_id
 
+ def as_json(options={})
+    super(only: [:id, :conversation_id, :body, :read, :created_at],
+    include: [user: { only: [:name] }]
+    )
+  end
 end
