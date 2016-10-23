@@ -33,9 +33,9 @@ describe PostsController, 'testing posts' do
     expect(Post.last.description).to eq(new_post_params[:description])
   end
 
-  it 'allows user to change description', type: :request do
+  it 'allows user to edit post description', type: :request do
     patch "/posts/#{@post.id}.json", description_edited, @auth_headers
-    expect(@post.description).to eq('Edited')
+    expect(@post.description).to eq(description_edited[:description])
   end
 
   it 'displays auth error if user not authenticated', type: :request do

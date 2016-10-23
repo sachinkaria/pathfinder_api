@@ -11,7 +11,7 @@ describe UsersController, 'testing users' do
   end
 
   it 'displays posts if logged in', type: :request do
-    get "/users/#{@bob.id}", {}, @auth_headers
+    get "/", {}, @auth_headers
     expect(json[0]['description']).to eq("First Post")
   end
 

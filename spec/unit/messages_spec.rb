@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 
-describe ConversationsController, 'testing conversations' do
+describe ConversationsController, 'testing messages' do
   let(:json) { JSON.parse(response.body) }
   let(:auth_error) {{"errors"=>["Authorized users only."]}}
 
@@ -26,9 +26,14 @@ describe ConversationsController, 'testing conversations' do
     expect(json[0]['body']).to eq(@firstmessage.body)
   end
 
-  it 'allow user to create a message', type: :request do
+  xit 'allow user to create a message', type: :request do
     post "/conversations/#{@conversation.id}/messages.json", {body: "Good", user_id: @user2.id}, @auth_headers_user2
     expect(Message.last.body).to eq("Good")
+  end
+
+  it 'destroying parent conversation destroys dependant messages', type: :request do
+    @conversation.destroy
+    expect(Message.count).to eq(0)
   end
 
   it 'displays auth error if user not authenticated', type: :request do
