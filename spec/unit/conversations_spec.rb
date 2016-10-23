@@ -31,7 +31,7 @@ describe ConversationsController, 'testing conversations' do
   end
 
   it 'displays auth error if user not authenticated', type: :request do
-    get '/', {}, {}
+    get '/conversations', {}, {}
     expect(json).to eq(auth_error)
   end
 
