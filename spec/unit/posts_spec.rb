@@ -38,7 +38,7 @@ describe PostsController, 'testing posts' do
     expect(@post.description).to eq('Edited')
   end
 
-  it 'displays existing delivery requests', type: :request do
+  it 'displays auth error if user not authenticated', type: :request do
     get '/', {}, {}
     expect(json).to eq(auth_error)
   end

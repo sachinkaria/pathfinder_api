@@ -7,6 +7,7 @@ class User < ActiveRecord::Base
 
   has_many :posts, dependent: :destroy
 
+
   before_save -> do
     self.uid = SecureRandom.uuid
     skip_confirmation!
@@ -14,7 +15,7 @@ class User < ActiveRecord::Base
 
   def as_json(options={})
      super(only: [:id, :email, :name],
-     include: [posts: { only: [:description] }]
+     include: [posts: { only: [:description, :created_at] }]
        )
    end
 
